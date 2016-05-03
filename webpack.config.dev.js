@@ -12,7 +12,8 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new HtmlWebpackPlugin({
       template: './app/index.html'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin() // To generate hot update chunks
   ],
   module:{
     loaders:[
@@ -27,6 +28,6 @@ module.exports = {
   },
   devServer:{
     contentBase: './dist',
-    hot: true
+    hot: true //Enable HMR (hot module replacement)
   }
 }

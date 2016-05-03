@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prodbuild": "webpack --config webpack.config.prod.js",
-    "devbuild": "webpack-dev-server --hot --inline --config webpack.config.dev.js"
+    "devbuild": "webpack-dev-server --config webpack.config.dev.js"
   },
   "repository": {
     "type": "git",
