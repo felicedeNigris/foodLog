@@ -1,11 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import FoodInput from './food.input'
+import FoodEntry from './food.entry'
+
 class FoodList extends React.Component{
   render(){
+    console.log('food_description is ', this.props,'from Foodlist')
+
     return (
       <ul>
-        <li> Some food I ate </li>
+        <FoodEntry food_description={this.props.food_description}/>
       </ul>
     )
   }
