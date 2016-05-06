@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import FoodInput from './subcomponents/food.input.js'
+import FoodInput from './subcomponents/foodinput/food.input.js'
 
 class FoodLog extends React.Component{
   constructor(){
