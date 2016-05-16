@@ -9,8 +9,8 @@ class CheckBoxGroup extends React.Component{
       <div>
         {this.props.options.map(function(option){
           return(
-            <span>
-              <input type="checkbox" value={option.value} label={option.label}/> {option.label}
+            <span key={option.value}>
+              <input type="checkbox" value={option.value} label={option.label} /> {option.label}
             </span>
           )
         })}

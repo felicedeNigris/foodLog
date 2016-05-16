@@ -7,7 +7,13 @@ import FoodList from './foodlist/food.list.js'
 import CheckBoxGroup from './checkboxgroup/checkbox.group.js'
 
 class FoodInput extends React.Component{
-
+  //this.props.onFoodSubmit({item: foodentry, includes: options });
+  handleSubmit(e){
+    e.preventDefault()
+    let item = this.props.foodentry
+    let includes = this.state.checkOptions
+    this.props.handleFoodSubmit('hello')
+  }
   inputChange(e){
     let newfood = e.target.value
     this.props.updateFoodEntry(newfood)
@@ -33,9 +39,8 @@ class FoodInput extends React.Component{
           <input type="text" placeholder="Meat Pie" value={this.props.foodentry} onChange={this.inputChange.bind(this)} />
           <label> Includes: </label>
           <CheckBoxGroup options={checkOptions}/>
-          <input type="submit" value="Submit" onSubmit={this.inputChange.bind(this)} />
+          <input type="submit" value="Submit" onSubmit={this.handleSubmit} />
         </form>
-        <FoodList foodlistitem={this.props} />
       </div>
     )
   }
