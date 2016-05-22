@@ -14,16 +14,16 @@ class FoodLog extends React.Component{
   updateFoodEntry(foodentry){
     this.setState({foodentry})
   }
-  handleFoodSubmit(e){
+  handleFoodSubmit(newNote){
     //add items to data
-    this.state.foodentry.concat(e)
-    this.setState({foodentry})
+    this.state.foodentry.push(newNote) //add input field to array
+    this.setState({foodentry: this.state.foodentry}) //finally set new value to array
   }
   render(){
     return (
       <div>
       <h1> Your Food Log App </h1>
-      <FoodInput updateFoodEntry={this.updateFoodEntry.bind(this)} foodentry={this.state.foodentry} onFoodSubmit={this.handleFoodSubmit}/>
+      <FoodInput updateFoodEntry={this.updateFoodEntry.bind(this)} foodentry={this.state.foodentry} onFoodSubmit={this.handleFoodSubmit.bind(this)}/>
       <List foodnotes={this.state.foodentry} />
       </div>
     )
