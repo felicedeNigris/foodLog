@@ -1,10 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-
-//import CheckBoxGroup
-import CheckBoxGroup from './checkboxgroup/checkbox.group.js'
-
 class FoodInput extends React.Component{
   //this.props.onFoodSubmit({item: foodentry, includes: options });
   inputChange(e){

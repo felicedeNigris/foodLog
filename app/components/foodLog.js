@@ -4,11 +4,14 @@ import ReactDOM from 'react-dom'
 import FoodInput from './subcomponents/foodinput/food.input.js'
 import List from './subcomponents/List/list.js'
 
+//CSS file
+import './test.css'
+
 class FoodLog extends React.Component{
   constructor(){
     super()
     this.state = {
-      foodentry: ['Chili Cheese Dog', 'Pizza', 'lasagna']
+      foodentry: ['Chili Cheese Dog', 'Pizza', 'Falaffel']
     }
   }
   updateFoodEntry(foodentry){
