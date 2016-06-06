@@ -41,10 +41,14 @@ class FoodInput extends React.Component{
     }
     console.log(options)
 
-    var newNote = [
-      this.refs.foodInput.value,
-      options
-    ]
+    if(options.length <= 0){
+      var newNote = this.refs.foodInput.value
+    }
+    else{
+      var newNote = []
+      newNote.push(this.refs.foodInput.value)
+      newNote.push(...options)
+    }
     this.props.onFoodSubmit(newNote)
     this.refs.foodInput.value = ''
   }
