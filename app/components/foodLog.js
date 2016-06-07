@@ -25,8 +25,8 @@ class FoodLog extends React.Component{
   deleteFoodItem(foodItem){
     let item = this.state.foodentry.indexOf(foodItem) //returns the numerical index of foodItem
     console.log(foodItem)
-    // this.state.foodentry.splice(item,1) //remove item from
-    // this.setState({ foodentry: this.state.foodentry })
+    this.state.foodentry.splice(item,1) //remove item from
+    this.setState({ foodentry: this.state.foodentry })
   }
   render(){
     return (
