@@ -5,7 +5,8 @@ import FoodInput from './subcomponents/foodinput/food.input.js'
 import List from './subcomponents/List/list.js'
 
 //CSS file
-import './test.css'
+// import './test.css'
+import '!style!css!sass!./test.scss'
 
 class FoodLog extends React.Component{
   constructor(){
