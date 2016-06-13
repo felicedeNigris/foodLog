@@ -28,8 +28,11 @@ class FoodLog extends React.Component{
     this.state.foodentry.splice(item,1) //remove item from
     this.setState({ foodentry: this.state.foodentry })
   }
-  editFoodItem(foodItem){
+  editFoodItem(foodItem, newNote){
     let item = this.state.foodentry.indexOf(foodItem) //returns the numerical index of the foodItem
+    this.state.foodentry[item] = 'Hello'
+    console.log('New item ',newNote)
+    this.setState({foodentry: this.state.foodentry})
     console.log("You selected this foodItem with editFoodItem: ", foodItem, "item number", item)
   }
   render(){
