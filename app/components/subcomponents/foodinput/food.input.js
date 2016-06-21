@@ -54,8 +54,7 @@ class FoodInput extends React.Component{
   }
 
   render(){
-    console.log(this.props, 'from FoodInput') //returns food_description{foodentry }
-
+    ///console.log(this.props, 'from FoodInput') //returns food_description{foodentry }
     return (
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
@@ -78,8 +77,8 @@ class FoodInput extends React.Component{
 }
 
 
-FoodInput.propTypes = {
-  foodentry: React.PropTypes.string.isRequired,
-}
+// FoodInput.propTypes = {
+//   foodentry: React.PropTypes.string.isRequired,
+// }
 
 export default FoodInput

@@ -3,15 +3,30 @@ import ReactDOM from 'react-dom'
 
 
 class List extends React.Component{
-  editChangeSubmit(e){
-    e.preventDefalut()
-    let editFood = e.target.value;
+  constructor(){
+    super()
+    this.state = {
+      edit: ''
+    }
+  }
+  editSubmit(){
+    // note.preventDefault()
+    // console.log('Submit values are', index)
+    console.log('EditValue is ', this.state.edit)
+    // this.props.onFoodEdit.bind(this.state.edit)
+    // let editFood = e.target.value;
 
+  }
+  editInputChange(e){
+    let editNewFood = e.target.value
+    this.state.edit = editNewFood;
+    this.setState({edit: this.state.edit})
+    console.log('Edit new food ', editNewFood, 'and state is ', this.state.edit)
   }
   renderEditForm(index,note){
     return (
-      <form onSubmit={this.props.onFoodEdit.bind(index,note)}>
-        <input type="text" placeholder={note}/>
+      <form onSubmit={this.editSubmit.bind(index,note)}>
+        <input type="text"  ref="editFood" onChange={this.editInputChange.bind(this)}/>
       </form>
     )
   }
