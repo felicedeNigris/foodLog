@@ -11,6 +11,8 @@ class FoodLog extends React.Component{
   constructor(){
     super()
     this.state = {
+      editText: '',
+      editTextID: null,
       foodentry: ['Chili Cheese Dog', 'Pizza', 'Falaffel']
     }
   }
@@ -28,23 +30,36 @@ class FoodLog extends React.Component{
     this.state.foodentry.splice(item,1) //remove item from
     this.setState({ foodentry: this.state.foodentry })
   }
-
+  handleChangeEditText(editItem){
+    // console.log('Arguments from handleChangeEditText',editItem, index)
+    // console.log('handleChangeEditText says', editItem)
+    console.log(editItem, 'onChange Value')
+    let editTextValue = editItem
+    //console.log('handleChangeEditText says that you want to change the index', editIndexItem)
+    //console.log('What value are you editing ?', editItem, this.state.foodentry[this.state.editTextID])
+    this.state.foodentry[this.state.editTextID] = editTextValue; // change the updated entry into the new value
+    this.setState({foodentry: this.state.foodentry})
+    this.state.editText = ''
+    this.state.editTextID = null
+  }
 
   editFoodItem(newFood){
     let editfood = newFood
-    console.log('Edit from the foodLog',editfood)
-    /// let item = this.state.foodentry.indexOf(foodItem) //returns the numerical index of the foodItem
-    ////console.log('New Food Item', this.refs.newNote.value);
-    // this.state.foodentry[item] = newNote.value
-    // console.log('New item ',newNote)
-    // this.setState({foodentry: this.state.foodentry})
-    // console.log("You selected this foodItem with editFoodItem: ", foodItem, "item number", item)
+    let editfoodIndex = this.state.foodentry.indexOf(newFood) //grab index number of editfoodIndex
+    console.log('The index i am editing is', editfoodIndex, 'from the',editfood)
+    this.state.editText = editfood
+    this.setState({editText: editfood})
+    this.state.editTextID = editfoodIndex
+    this.setState({editTextID: editfoodIndex})
+    // When a user clicks on the edit button
+    //the this function grabs the edit value and edit index number for foodentry
+    console.log('EDIT : The state is now ',this.state)
   }
   render(){
     return (
       <div>
       <h1> Your Food Log App </h1>
-      <FoodInput updateFoodEntry={this.updateFoodEntry.bind(this)} foodentry={this.state.foodentry} onFoodSubmit={this.handleFoodSubmit.bind(this)}  />
+      <FoodInput updateFoodEntry={this.updateFoodEntry.bind(this)} changeEditText={this.handleChangeEditText.bind(this)} editTextValue={this.state.editText} editID={this.state.editTextID} foodentry={this.state.foodentry} onFoodSubmit={this.handleFoodSubmit.bind(this) }  />
       <List foodnotes={this.state.foodentry} onFoodDelete={this.deleteFoodItem.bind(this)} onFoodEdit={this.editFoodItem.bind(this)} />
       </div>
     )

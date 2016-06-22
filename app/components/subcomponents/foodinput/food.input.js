@@ -2,11 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 class FoodInput extends React.Component{
-  //this.props.onFoodSubmit({item: foodentry, includes: options });
   inputChange(e){
-    let newfood = e.target.value
-    this.setState({text: newfood})
+    //This will update the send the input value back
+    //to handleEditChange for it to modify
+    this.props.changeEditText(e.target.value)
   }
+
   setRef(ref){
     this.note = ref
   }
@@ -49,17 +50,24 @@ class FoodInput extends React.Component{
       newNote.push(this.refs.foodInput.value)
       newNote.push(...options)
     }
-    this.props.onFoodSubmit(newNote)
-    this.refs.foodInput.value = ''
+    console.log('ID from submit', this.props.editID, 'and text from submit is ',this.props.editTextValue)
+    if(this.props.editID !== undefined){
+      console.log('Is update')
+      this.props.changeEditText(this.refs.foodInput.value)
+      this.refs.foodInput.value= ''
+    }else{
+      this.props.onFoodSubmit(newNote)
+      this.refs.foodInput.value = ''
+    }
   }
 
   render(){
-    ///console.log(this.props, 'from FoodInput') //returns food_description{foodentry }
+    console.log(this.props, 'from FoodInput') //returns food_description{foodentry }
     return (
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <label> Food Entry:</label>
-          <input type="text" placeholder="Meat Pie" ref="foodInput" onChange={this.inputChange.bind(this)} />
+          <input type="text" placeholder="Meat Pie" ref="foodInput" value={this.props.editTextValue} onChange={this.inputChange} />
           <label> Includes: </label>
           <input type="checkbox" ref="checkme1" value="Meat"/> Meat
           <input type="checkbox" ref="checkme2" value="Fowl"/> Fowl
@@ -76,9 +84,5 @@ class FoodInput extends React.Component{
   }
 }
 
-
-// FoodInput.propTypes = {
-//   foodentry: React.PropTypes.string.isRequired,
-// }
 
 export default FoodInput
