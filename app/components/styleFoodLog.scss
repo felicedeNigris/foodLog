@@ -89,14 +89,13 @@ li{
 		#BED8D3 10px,
 		#BED8D3 20px
 	);
-	//left: 200px;
 	transition: all 1s ease;
 }
 .hov{
 	width: 100%;
 	.x{
 		transition: all 1s ease-in;
-		width: 0%;
+		width: 100%;
 		height: 30px;
 		p{
 			box-shadow: none;
@@ -231,7 +230,7 @@ input[type="checkbox"]:checked + label {
 }
 
 /* BUTTON */
-button{
+input[type="submit"]{
 	position: relative;
 	top: 24px;
 	width: 100%;

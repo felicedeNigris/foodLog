@@ -12,10 +12,21 @@ class List extends React.Component{
     return (
         <ul>
           {this.props.foodnotes.map((note,index)=>{
-            return (<li key={index}>{note}
-              <span><button onClick={this.editNote.bind(this, note)}> EDIT </button></span>
-              <button onClick={this.props.onFoodDelete.bind(index,note)}> Delete </button>
-              </li>)
+            return (
+              <li key={index}>
+                <div className="hov">
+                  <div className="x">
+                    <p className="fooditem"> {note} </p>
+                    <p className="remove" onClick={this.props.onFoodDelete.bind(index,note)}> Delete </p>
+                    <i className="fa fa-trash-o" aria-hidden="true"></i>
+                    <div className="edit" onClick={this.editNote.bind(this, note)}>
+                      <p> EDIT </p>
+                      <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            )
           })}
         </ul>
     )
