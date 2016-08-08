@@ -62,7 +62,7 @@ class FoodLog extends React.Component{
         <div className="logo"></div>
         <div className="logo grayscale"></div>
         <FoodInput updateFoodEntry={this.updateFoodEntry.bind(this)} changeEditText={this.handleChangeEditText.bind(this)} editTextValue={this.state.editText} editID={this.state.editTextID} foodentry={this.state.foodentry} onFoodSubmit={this.handleFoodSubmit.bind(this) }  />
-        <List foodnotes={this.state.foodentry} onFoodDelete={this.deleteFoodItem.bind(this)} onFoodEdit={this.editFoodItem.bind(this)} />
+          <List foodnotes={this.state.foodentry} onFoodDelete={this.deleteFoodItem.bind(this)} onFoodEdit={this.editFoodItem.bind(this)} />
       </div>
     )
 

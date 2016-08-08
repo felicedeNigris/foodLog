@@ -10,7 +10,7 @@ class List extends React.Component{
   render(){
     console.log(this.props, 'props from List.js')
     return (
-        <ul>
+        <ul className="foodList">
           {this.props.foodnotes.map((note,index)=>{
             return (
               <li key={index}>

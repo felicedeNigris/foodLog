@@ -62,9 +62,9 @@ class FoodInput extends React.Component{
   }
 
   render(){
-    console.log(this.props, 'from FoodInput') //returns food_description{foodentry }
+    console.log(this.props, 'from FoodInput')  //returns food_description{foodentry}
     return (
-      <div>
+      <div className="inputForm">
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="text" placeholder="Enter your food item" ref="foodInput" value={this.props.editTextValue} onChange={this.inputChange} />
 
@@ -93,8 +93,9 @@ class FoodInput extends React.Component{
             <input type="checkbox" id="check8" ref="checkme8" value="Gluten Free"/> Gluten Free
             <label for="check8"><span className="fa fa-check"/></label>
 
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit"/>
           </div>
+
         </form>
         <div className="form-shadow"></div>
       </div>
