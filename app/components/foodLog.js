@@ -21,6 +21,7 @@ class FoodLog extends React.Component{
   }
   handleFoodSubmit(newNote){
     //add items to data
+
     this.state.foodentry.push(newNote) //add input field to array
     this.setState({foodentry: this.state.foodentry}) //finally set new value to array
   }
@@ -61,7 +62,7 @@ class FoodLog extends React.Component{
       <div className="menu">
         <div className="logo"></div>
         <div className="logo grayscale"></div>
-        <FoodInput updateFoodEntry={this.updateFoodEntry.bind(this)} changeEditText={this.handleChangeEditText.bind(this)} editTextValue={this.state.editText} editID={this.state.editTextID} foodentry={this.state.foodentry} onFoodSubmit={this.handleFoodSubmit.bind(this) }  />
+          <FoodInput updateFoodEntry={this.updateFoodEntry.bind(this)} changeEditText={this.handleChangeEditText.bind(this)} editTextValue={this.state.editText} editID={this.state.editTextID} foodentry={this.state.foodentry} onFoodSubmit={this.handleFoodSubmit.bind(this) }  />
           <List foodnotes={this.state.foodentry} onFoodDelete={this.deleteFoodItem.bind(this)} onFoodEdit={this.editFoodItem.bind(this)} />
       </div>
     )
