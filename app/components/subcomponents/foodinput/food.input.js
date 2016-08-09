@@ -11,9 +11,10 @@ class FoodInput extends React.Component{
   setRef(ref){
     this.note = ref
   }
+
   handleSubmit(e){
     e.preventDefault() //ignore default submit
-    console.log('The ref value',  this.refs.foodInput.value)
+    console.log(this.refs.foodInput.value)
     var options = []
 
     if(this.refs.checkme1.checked === true){
@@ -40,24 +41,19 @@ class FoodInput extends React.Component{
     if(this.refs.checkme8.checked === true){
       options.push(this.refs.checkme8.value)
     }
-    console.log('Length of options in the input field',options,'and length is ', options.length)
+    console.log(options)
 
-    if(options.length <= 0){
-      var newNote = this.refs.foodInput.value //if there are no options
-      this.props.onFoodSubmit(newNote) //you can just push the description
-      this.refs.foodInput.value= '' //reset food ref to blank
+    if(options.length <= 0 && this.props.editID === null){
+      var newNote = this.refs.foodInput.value
+      this.props.onFoodSubmit(newNote)
+      this.refs.foodInput.value = ''
     }
-    if(options.length > 0){
-      //if options are entered in the form
-      //append options to newNote. Thus 1st index will be new food item
-      //and anything after the 1st index of newNote will be an option
+    if(options.length > 0 && this.props.editID === null){
       var newNote = []
       newNote.push(this.refs.foodInput.value)
       newNote.push(...options)
-      console.log('the new foodItem with options are',newNote)
-      //add new food item with food options
       this.props.onFoodSubmit(newNote)
-      this.refs.foodInput.value= '' //reset food ref to blank
+      this.refs.foodInput.value = ''
     }
     console.log('ID from submit', this.props.editID, 'and text from submit is ',this.props.editTextValue)
     if(this.props.editID !== undefined){
@@ -65,12 +61,13 @@ class FoodInput extends React.Component{
       this.props.changeEditText(this.refs.foodInput.value)
       this.refs.foodInput.value= ''
     }
-    else{
-      console.log('This is not an edit')
-      this.props.onFoodSubmit(newNote)
-      this.refs.foodInput.value = ''
-    }
   }
+
+
+
+
+
+  //
 
   render(){
     console.log(this.props, 'from FoodInput')  //returns food_description{foodentry}
