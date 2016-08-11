@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase-database.js"></script>
+    <!-- ReactFire -->
+    <script src="https://cdn.firebase.com/libs/reactfire/1.0.0/reactfire.min.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAnXzW9nfdDa6BzyNJJycNuXNw7WICcoms",
+        authDomain: "reactfoodlog.firebaseapp.com",
+        databaseURL: "https://reactfoodlog.firebaseio.com",
+        storageBucket: "reactfoodlog.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
     <script src="https://use.fontawesome.com/b7018b4463.js"></script>
     <meta charset="utf-8">
     <title>Food Log</title>

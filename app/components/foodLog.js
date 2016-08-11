@@ -6,24 +6,36 @@ import List from './subcomponents/List/list.js'
 
 //SCSS file
 import '!style!css!sass!./styleFoodLog.scss'
+//import RE-BASE
+import Rebase from 're-base'
+//RE-BASE FIREBASE URL
+const base = Rebase.createClass('https://reactfoodlog.firebaseio.com/')
 
 class FoodLog extends React.Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       editText: '',
       editTextID: null,
-      foodentry: ['Chili Cheese Dog', 'Pizza', 'Falaffel']
+      foodentry: []
     }
+  }
+  componentDidMount(){
+    //Sync (Two way binding) firebase base data with state data
+    base.syncState('food_entries',{
+      context: this,
+      state: 'foodentry',
+      asArray: true
+    })
   }
   updateFoodEntry(foodentry){
     this.setState({foodentry})
   }
   handleFoodSubmit(newNote){
     //add items to data
-
-    this.state.foodentry.push(newNote) //add input field to array
-    this.setState({foodentry: this.state.foodentry}) //finally set new value to array
+    this.setState({
+      foodentry: this.state.foodentry.push([newNote])
+    })
   }
   deleteFoodItem(foodItem){
     let item = this.state.foodentry.indexOf(foodItem) //returns the numerical index of foodItem
