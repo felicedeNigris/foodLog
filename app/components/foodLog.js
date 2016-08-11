@@ -29,12 +29,12 @@ class FoodLog extends React.Component{
     })
   }
   updateFoodEntry(foodentry){
-    this.setState({foodentry})
+    //this.setState({foodentry})
   }
   handleFoodSubmit(newNote){
     //add items to data
     this.setState({
-      foodentry: this.state.foodentry.push([newNote])
+      foodentry: this.state.foodentry.push(newNote)
     })
   }
   deleteFoodItem(foodItem){
@@ -44,14 +44,14 @@ class FoodLog extends React.Component{
     this.setState({ foodentry: this.state.foodentry })
   }
   handleChangeEditText(editItem){
-    // console.log('Arguments from handleChangeEditText',editItem, index)
-    // console.log('handleChangeEditText says', editItem)
     console.log(editItem, 'onChange Value')
     let editTextValue = editItem
-    //console.log('handleChangeEditText says that you want to change the index', editIndexItem)
-    //console.log('What value are you editing ?', editItem, this.state.foodentry[this.state.editTextID])
     this.state.foodentry[this.state.editTextID] = editTextValue; // change the updated entry into the new value
-    this.setState({foodentry: this.state.foodentry})
+    //filter out empty values or null values from going into the firebase
+    function noEmpty(value){
+      return !(value === "" || value === null)
+    }
+    this.setState({foodentry: this.state.foodentry.filter(noEmpty)})
     this.state.editText = ''
     this.state.editTextID = null
   }
