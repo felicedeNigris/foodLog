@@ -39,7 +39,9 @@
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 0px;
-	bottom: 80%;
+	bottom: 121%;
+  height: 400px;
+  overflow-y: scroll;
 }
 @mixin listbg($color1, $color2){
 	list-style-type: none;
