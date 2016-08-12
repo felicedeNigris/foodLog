@@ -76,34 +76,32 @@ class FoodInput extends React.Component{
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="text" placeholder="Enter your food item" ref="foodInput" value={this.props.editTextValue} onChange={this.inputChange} />
 
-          <div class="checkbox-wrapper">
+          <div className="checkbox-wrapper">
             <input type="checkbox" id="check1" ref="checkme1" value="Meat"/> Meat
-            <label for="check1"><span className="fa fa-check"/></label>
+            <label htmlFor="check1"><span className="fa fa-check"/></label>
 
             <input type="checkbox" id="check2" ref="checkme2" value="Fowl"/> Fowl
-            <label for="check2"><span className="fa fa-check"/></label>
+            <label htmlFor="check2"><span className="fa fa-check"/></label>
 
             <input type="checkbox" id="check3" ref="checkme3" value="Fish"/> Fish
-            <label for="check3"><span className="fa fa-check"/></label>
+            <label htmlFor="check3"><span className="fa fa-check"/></label>
 
             <input type="checkbox" id="check4" ref="checkme4" value="Veggie"/> Veggie
-            <label for="check4"><span className="fa fa-check"/></label>
+            <label htmlFor="check4"><span className="fa fa-check"/></label>
 
             <input type="checkbox" id="check5" ref="checkme5" value="Vegan"/> Vegan
-            <label for="check5"><span className="fa fa-check"/></label>
+            <label htmlFor="check5"><span className="fa fa-check"/></label>
 
             <input type="checkbox" id="check6" ref="checkme6" value="Dairy"/> Dairy
-            <label for="check6"><span className="fa fa-check"/></label>
+            <label htmlFor="check6"><span className="fa fa-check"/></label>
 
             <input type="checkbox" id="check7" ref="checkme7" value="Wheat"/> Wheat
-            <label for="check7"><span className="fa fa-check"/></label>
+            <label htmlFor="check7"><span className="fa fa-check"/></label>
 
             <input type="checkbox" id="check8" ref="checkme8" value="Gluten Free"/> Gluten Free
-            <label for="check8"><span className="fa fa-check"/></label>
-
-            <input type="submit" value="Submit"/>
+            <label htmlFor="check8"><span className="fa fa-check"/></label>
           </div>
-
+          <input type="submit" value="Submit"/>
         </form>
         <div className="form-shadow"></div>
       </div>
