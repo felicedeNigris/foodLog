@@ -16,7 +16,7 @@ class List extends React.Component{
               <li key={index}>
                 <div className="hov">
                   <div className="x">
-                    <p className="fooditem"> {note[0].length > 0 ? note[0] : 'undefined'} </p>
+                    <p className={'fooditem ' + note.filter(function(item,index){return index > 0}).join(' ')}> {note[0].length > 0 ? note[0] : 'undefined'} </p>
                     <p className="remove" onClick={this.props.onFoodDelete.bind(index,note)}> Delete </p>
                     <i className="fa fa-trash-o" aria-hidden="true"></i>
                     <div className="edit" onClick={this.editNote.bind(this, note)}>
